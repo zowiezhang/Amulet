@@ -22,21 +22,21 @@ This code has been tested on Ubuntu 20.04 with Python 3.8 or above.
 
 Clone the source code from GitHub:
 
-```shell
+```
 git clone https://github.com/zowiezhang/Amulet.git
 cd Amulet
 ```
 
 We recommend using [Miniconda](https://docs.conda.io/en/latest/miniconda.html) and setting up an environment:
 
-```shell
+```
 conda create -y --name amulet python=3.8
 conda activate amulet
 ```
 
 Then install the required packages:
 
-```shell
+```
 pip install -r requirements.txt
 ```
 
@@ -56,7 +56,7 @@ data
 
 You can also use your own dataset by defining a json file of the following format:
 
-```json
+```
 {
     "index": 0,
     "question": "What is the best mobile phone brand currently?"
@@ -66,7 +66,7 @@ You can also use your own dataset by defining a json file of the following forma
 
 ## Usage
 
-```shell
+```
 export PYTHONPATH=$(pwd)
 python main.py --method amulet \
 							 --model_name meta-llama/Llama-3.1-8B-Instruct \
@@ -86,7 +86,7 @@ We implement two types of evaluation, GPT win rate and RM score.
 
 If you want to use our GPT win rate evaluation, you should first create and add your API_KEY in `openai_key_info.py`, then follow the demo:
 
-```shell
+```
 python evals/gpt_evals.py --pref_name creative \
 													--model_name Llama-3.1-8B-Instruct \
 													--eval_data UltraFeedback_truthful_qa
@@ -96,7 +96,7 @@ python evals/gpt_evals.py --pref_name creative \
 
 We also provide an implemrntation of RM evals with [ArmoRM](https://huggingface.co/RLHFlow/ArmoRM-Llama3-8B-v0.1), here is a quick start demo:
 
-```shell
+```
 python evals/rm_evals.py --method amulet \
 												 --pref_name creative \
 												 --model_name Llama-3.1-8B-Instruct \
