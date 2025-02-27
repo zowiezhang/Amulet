@@ -22,21 +22,21 @@ This code has been tested on Ubuntu 20.04 with Python 3.8 or above.
 
 Clone the source code from GitHub:
 
-```
+```bash
 git clone https://github.com/zowiezhang/Amulet.git
 cd Amulet
 ```
 
 We recommend using [Miniconda](https://docs.conda.io/en/latest/miniconda.html) and setting up an environment:
 
-```
+```bash
 conda create -y --name amulet python=3.8
 conda activate amulet
 ```
 
 Then install the required packages:
 
-```
+```bash
 pip install -r requirements.txt
 ```
 
@@ -66,12 +66,12 @@ You can also use your own dataset by defining a json file of the following forma
 
 ## Usage
 
-```
+```bash
 export PYTHONPATH=$(pwd)
 python main.py --method amulet \
-							 --model_name meta-llama/Llama-3.1-8B-Instruct \
-							 --eval_data UltraFeedback_truthful_qa \
-							 --pref_name creative
+		--model_name meta-llama/Llama-3.1-8B-Instruct \
+		--eval_data UltraFeedback_truthful_qa \
+		--pref_name creative
 ```
 
 The memory cost of Amuet is nearly the same as the inference. For 7B/8B model size or below, Amulet can run with only one 24G Nvidia GPU. This code is set to run on a single GPU by default, if you want to perform the code on multi-GPUs, please add `--multi_gpu` to the command.
@@ -86,21 +86,21 @@ We implement two types of evaluation, GPT win rate and RM score.
 
 If you want to use our GPT win rate evaluation, you should first create and add your API_KEY in `openai_key_info.py`, then follow the demo:
 
-```
+```bash
 python evals/gpt_evals.py --pref_name creative \
-													--model_name Llama-3.1-8B-Instruct \
-													--eval_data UltraFeedback_truthful_qa
+		--model_name Llama-3.1-8B-Instruct \
+		--eval_data UltraFeedback_truthful_qa
 ```
 
 ### RM score
 
 We also provide an implemrntation of RM evals with [ArmoRM](https://huggingface.co/RLHFlow/ArmoRM-Llama3-8B-v0.1), here is a quick start demo:
 
-```
+```bash
 python evals/rm_evals.py --method amulet \
-												 --pref_name creative \
-												 --model_name Llama-3.1-8B-Instruct \
-												 --eval_data UltraFeedback_truthful_qa
+		--pref_name creative \
+		--model_name Llama-3.1-8B-Instruct \
+		--eval_data UltraFeedback_truthful_qa
 ```
 
 ## BibTex
