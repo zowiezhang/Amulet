@@ -32,7 +32,7 @@ def load_models(args):
     else:
         model = DecodingMethodsModel.from_pretrained(
             model_name, token_size = tokenizer.vocab_size, torch_dtype = torch.bfloat16
-        ).half()
+        )
 
     if model.token_size != model.vocab_size:
         model.token_size = model.vocab_size
