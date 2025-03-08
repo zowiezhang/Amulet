@@ -1,8 +1,10 @@
-# Amulet: ReAlignment During Test Time for Personalized Preference Adaptation of LLMs
-Official code repository for ICLR 2025 paper "Amulet: ReAlignment During Test Time for Personalized Preference Adaptation of LLMs".
+<div align="center">
+    <img src="images/logo.png" alt="Amulet Logo" width="100%">
+</div>
 
-- [Project Page](https://zowiezhang.github.io/projects/Amulet/)
-- [Paper](http://arxiv.org/abs/2502.19148)
+# Amulet: ReAlignment During Test Time for Personalized Preference Adaptation of LLMs
+
+[![arXiv](https://img.shields.io/badge/arXiv-2502.19148-b31b1b.svg)](https://arxiv.org/abs/2502.19148) [![Paper](https://img.shields.io/badge/OpenReview-Amulet-blue)](https://openreview.net/forum?id=f9w89OY2cp) [![Project Page](https://img.shields.io/badge/🔗-Project%20Page-blue)](https://zowiezhang.github.io/projects/Amulet/)
 
 ## Overview
 
@@ -10,7 +12,7 @@ Official code repository for ICLR 2025 paper "Amulet: ReAlignment During Test Ti
 
 The figure is intersected by an axis, with each node on the axis displaying a different distribution that shows the constantly changing user personalized preferences due to factors like time, value, need, and context, as illustrated by the part (a).
 
-The part (b) shows that existing methods mostly consider aligning LLMs with general preferences from a static dataset, which may result in misalignment in dynamically personalized scenarios. 
+The part (b) shows that existing methods mostly consider aligning LLMs with general preferences from a static dataset, which may result in misalignment in dynamically personalized scenarios.
 
 In the part (c), we have enlarged one of the preference nodes to show the processing of our Amulet framework. We formulate the decoding process of every token as a separate online learning problem and further adapt the backbone LLMs to align with the current user preference through a real-time optimization process with the guidance of user-provided prompts. The red token means the current processing token, which will be the condition for the next token prediction.
 
@@ -18,7 +20,7 @@ The core algorithm is implemented in `DecodingMethodsModels` folder. We also pro
 
 ## Setup
 
-This code has been tested on Ubuntu 20.04 with Python 3.8 or above. 
+This code has been tested on Ubuntu 20.04 with Python 3.8 or above.
 
 Clone the source code from GitHub:
 
@@ -77,7 +79,7 @@ python main.py \
 
 The memory cost of Amuet is nearly the same as the inference. For 7B/8B model size or below, Amulet can run with only one 24G Nvidia GPU. This code is set to run on a single GPU by default, if you want to perform the code on multi-GPUs, please add `--multi_gpu` to the command.
 
-Please refer to `config.py` for documentation on what each configuration does. 
+Please refer to `config.py` for documentation on what each configuration does.
 
 ## Evaluation
 
@@ -114,9 +116,8 @@ If you find our work useful, please consider citing:
 @inproceedings{zhang2025amulet,
     title={Amulet: ReAlignment During Test Time for Personalized Preference Adaptation of {LLM}s},
     author={Zhaowei Zhang and Fengshuo Bai and Qizhi Chen and Chengdong Ma and Mingzhi Wang and Haoran Sun and Zilong Zheng and Yaodong Yang},
-    booktitle={The Thirteenth International Conference on Learning Representations},
+    booktitle={The Thirteenth International Conference on Learning Representations (ICLR)},
     year={2025},
     url={https://openreview.net/forum?id=f9w89OY2cp}
 }
 ```
-
